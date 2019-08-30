@@ -17,3 +17,8 @@ class InboxMail extends PureComponent {
 }
 
 export default withData(InboxMail);
+
+// return <Mail {...mail} 
+// type={'t-mail-from'} 
+// header={`From:`}
+// body={"lalala"} />;

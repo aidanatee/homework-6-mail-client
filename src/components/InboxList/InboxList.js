@@ -9,7 +9,7 @@ import { withData } from '../../context/Data';
 import MailList from '../MailList';
 
 
-const InboxList = ({data}) => (<MailList data={data}/>)
+const InboxList = ({ data, match }) => <div className="t-inbox-list"><MailList data={data.inbox} match={match} /></div>
 
 
 export default withData(InboxList);

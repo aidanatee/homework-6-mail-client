@@ -6,8 +6,8 @@ import React from 'react';
 import styles from './Home.module.css';
 
 const Home = () => (
-    <div class={styles.container}>
-        <p class="t-greeting">Приветствуем в почтовом клиенте!</p>
+    <div className={styles.container}>
+        <p className="t-greeting">Приветствуем в почтовом клиенте!</p>
     </div>
 );
 
