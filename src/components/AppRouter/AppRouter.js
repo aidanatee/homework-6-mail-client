@@ -20,10 +20,12 @@ import OutboxMail from '../OutboxMail';
 import styles from './AppRouter.module.css';
 import { withData } from '../../context/Data';
 
-let title = 'title';
 
-export default ({ match }) => (
-  
+
+export default ({ match }) => {
+  console.log('match from AppRouter = ' + match.url)
+  const home = match.url;
+  return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <nav className={styles.nav}>
@@ -39,22 +41,27 @@ export default ({ match }) => (
             </li>
           </ul>
         </nav>
-   
+  
         <div className={styles.content}>
-          <h3 className={`${styles.title} t-greeting`}>{title}</h3>
+  
             <Switch>
-              <Route path="/app" component={Home} exact />
-              <Route path={`${match.path}/inbox`} component={withData(InboxList)} />
+              <Route path="/app" component={Home} header={`${styles.title} t-greeting`} exact /> 
+              <Route path={`${match.path}/inbox`} component={withData(InboxList)} exact />
               <Route path={`${match.path}/inbox/:id`} component={withData(InboxMail)} />
-              <Route path={`${match.path}/outbox`} component={withData(OutboxList)} />
+              <Route path={`${match.path}/outbox`} component={withData(OutboxList)} exact />
               <Route path={`${match.path}/outbox/:id`} component={withData(OutboxMail)} />
               <Redirect to="/app" />
+               
             </Switch>
         </div>
       </div>
- 
-    </div>
-)
+
+  </div>
+
+  );
+}
+  
+
 
 
 

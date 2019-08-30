@@ -7,10 +7,17 @@
 import React from 'react';
 import { withData } from '../../context/Data';
 import MailList from '../MailList';
+import styles from '../AppRouter/AppRouter.module.css';
 
 
-const InboxList = ({ data, match }) => <div className="t-inbox-list"><MailList data={data.inbox} match={match} /></div>
-
+const InboxList = ({ data, match }) => (
+    <div>
+      <h3 className={`${styles.title} t-greeting`}>Inbox</h3>
+      <div className="t-inbox-list">
+        <MailList data={data.inbox} match={match} />
+      </div>
+    </div>
+ )
 
 export default withData(InboxList);
 
